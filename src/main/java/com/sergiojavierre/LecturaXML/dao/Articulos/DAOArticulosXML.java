@@ -2,6 +2,7 @@ package com.sergiojavierre.LecturaXML.dao.Articulos;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.sergiojavierre.LecturaXML.entities.Articulo;
+import com.sergiojavierre.LecturaXML.entities.Categoria;
 import com.sergiojavierre.LecturaXML.entities.Data;
 
 import java.io.File;
@@ -50,6 +51,8 @@ public class DAOArticulosXML implements  DAOArticulos {
         }
     }
 
+
+
     @Override
     public String crear(Articulo articulo) {
         List<Articulo> articulos=getAll();
@@ -67,6 +70,15 @@ public class DAOArticulosXML implements  DAOArticulos {
                 save(articulos);
 
             }
+        }
+    }
+    public void crearcategoria(String codigo, Categoria categoria) {
+        List<Articulo> articulos = getAll();
+        for (int i = 0; i < articulos.size(); i++) {
+            if (articulos.get(i).getCodigo() == codigo) {
+                articulos.get(i).añadircategoria(categoria);
+            }
+            save(articulos);
         }
     }
 

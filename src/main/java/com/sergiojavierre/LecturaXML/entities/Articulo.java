@@ -19,7 +19,7 @@ public class Articulo {
     @JacksonXmlProperty(localName = "categoria")
     private List<Categoria> categorias;
 
-    public Articulo(){}
+    public Articulo(String codigo, Integer precio){}
 
     public Articulo(String codigo, Integer precio,List<Categoria> categorias) {
         this.codigo = codigo;
@@ -31,7 +31,12 @@ public class Articulo {
 
     }
 
-
+    public void añadircategoria(Categoria categoria){
+        if(this.categorias == null){
+            this.categorias = new ArrayList<>();
+        }
+        categorias.add(categoria);
+    }
     public List<Categoria> getCategorias() {
         return categorias;
     }
