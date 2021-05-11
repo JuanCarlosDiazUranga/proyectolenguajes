@@ -2,6 +2,7 @@ package com.sergiojavierre.LecturaXML.dao.Articulos;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.sergiojavierre.LecturaXML.entities.Articulo;
+import com.sergiojavierre.LecturaXML.entities.Categoria;
 import com.sergiojavierre.LecturaXML.entities.Data;
 
 import java.io.File;
@@ -26,20 +27,7 @@ public class DAOArticulosXML implements  DAOArticulos {
         }
         return null;
     }
-    public Articulo exist(String nombre){
-        List<Articulo> articulos= getAll();
-        for (int i = 0; i <articulos.size() ; i++) {
-            if (articulos.get(i).getCodigo() == nombre){
-                Articulo posibleArticulo= articulos.get(i);
-                return posibleArticulo;
-            }
-            else {
-                return null;
-            }
 
-        }
-        return null;
-    }
     public void save(List<Articulo> articulos){
         Data dataContainer = new Data(articulos);
         XmlMapper xmlMapper = new XmlMapper();
@@ -49,6 +37,8 @@ public class DAOArticulosXML implements  DAOArticulos {
             e.printStackTrace();
         }
     }
+
+
 
     @Override
     public String crear(Articulo articulo) {
@@ -67,6 +57,15 @@ public class DAOArticulosXML implements  DAOArticulos {
                 save(articulos);
 
             }
+        }
+    }
+    public void crearcategoria(String codigo, Categoria categoria) {
+        List<Articulo> articulos = getAll();
+        for (int i = 0; i < articulos.size(); i++) {
+            if (articulos.get(i).getCodigo().equals(codigo)) {
+                articulos.get(i).añadircategoria(categoria);
+            }
+            save(articulos);
         }
     }
 

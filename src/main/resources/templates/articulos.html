@@ -14,6 +14,10 @@
         <label th:text="${categoria.nombre}"/>
         </li>
     </ul>
+    <li th:each="imagen: ${articulo.imagenes}">
+        <label th:text="${imagen.nombre}"/>
+    </li>
+    </ul>
 </div>
 </body>
 </html>

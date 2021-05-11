@@ -9,7 +9,6 @@ import java.util.List;
 
 @JacksonXmlRootElement(localName = "articulo")
 public class Articulo {
-
     @JacksonXmlProperty(isAttribute = true)
     private String codigo;
 
@@ -18,6 +17,9 @@ public class Articulo {
     @JacksonXmlElementWrapper(localName = "categorias")
     @JacksonXmlProperty(localName = "categoria")
     private List<Categoria> categorias;
+    @JacksonXmlElementWrapper(localName = "imagen")
+    @JacksonXmlProperty(localName = "imagenes")
+    private  List<Imagen> imagenes;
 
     public Articulo(){}
 
@@ -31,7 +33,22 @@ public class Articulo {
 
     }
 
+    public void añadircategoria(Categoria categoria){
+        if(this.categorias == null){
+            this.categorias = new ArrayList<>();
+        }
+        categorias.add(categoria);
+    }
 
+    public void añadirimagen(Imagen imagen){
+        if(this.imagenes == null){
+            this.imagenes = new ArrayList<>();
+        }
+        imagenes.add(imagen);
+    }
+    public List<Imagen>getImagenes(){
+        return imagenes;
+    }
     public List<Categoria> getCategorias() {
         return categorias;
     }

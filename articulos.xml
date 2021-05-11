@@ -11,6 +11,10 @@
             <categorias>
                 <categoria nombre="CINEFILO"/>
             </categorias>
+            <imagenes>
+                <imagen nombre="imagen.jpg"/>
+
+            </imagenes>
         </articulo>
         <articulo precio="123" codigo="3">
             <categorias>
