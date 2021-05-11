@@ -8,7 +8,7 @@
 <div th:each="articulo: ${articulos}">
     <h4>Articulo</h4>
     <p th:text="${articulo.precio}"/>
-    <p th:text="${articulo.codigo}"/>
+    <p th:text="${articulo.id}"/>
     <ul>
         <li th:each="categoria: ${articulo.categorias}">
         <label th:text="${categoria.nombre}"/>

@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <data>
     <articulos>
-        <articulo precio="123" codigo="1">
+        <articulo precio="123" id="1">
             <categorias>
                 <categoria nombre="electronica"/>
                 <categoria nombre="CINEFILO"/>
             </categorias>
         </articulo>
-        <articulo precio="123" codigo="2">
+        <articulo precio="123" id="2">
             <categorias>
                 <categoria nombre="CINEFILO"/>
             </categorias>
@@ -16,12 +16,12 @@
 
             </imagenes>
         </articulo>
-        <articulo precio="123" codigo="3">
+        <articulo precio="123" id="3">
             <categorias>
                 <categoria nombre="electronica"/>
             </categorias>
         </articulo>
-        <articulo precio="123" codigo="4">
+        <articulo precio="123" id="4">
             <categorias>
                 <categoria nombre="comunicacion"/>
             </categorias>

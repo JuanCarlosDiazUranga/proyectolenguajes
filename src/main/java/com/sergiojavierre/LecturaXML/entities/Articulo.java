@@ -21,7 +21,7 @@ public class Articulo {
     @JacksonXmlProperty(localName = "imagenes")
     private  List<Imagen> imagenes;
 
-    public Articulo(){}
+    public Articulo(String codigo, Integer precio){}
 
     public Articulo(String codigo, Integer precio,List<Categoria> categorias) {
         this.codigo = codigo;
@@ -40,6 +40,7 @@ public class Articulo {
         categorias.add(categoria);
     }
 
+
     public void añadirimagen(Imagen imagen){
         if(this.imagenes == null){
             this.imagenes = new ArrayList<>();
@@ -49,6 +50,7 @@ public class Articulo {
     public List<Imagen>getImagenes(){
         return imagenes;
     }
+
     public List<Categoria> getCategorias() {
         return categorias;
     }
