@@ -17,20 +17,24 @@ public class Articulo {
     @JacksonXmlElementWrapper(localName = "categorias")
     @JacksonXmlProperty(localName = "categoria")
     private List<Categoria> categorias;
-    @JacksonXmlElementWrapper(localName = "imagen")
-    @JacksonXmlProperty(localName = "imagenes")
-    private  List<Imagen> imagenes;
+    @JacksonXmlElementWrapper(localName = "imagenes")
+    @JacksonXmlProperty(localName = "imagen")
+    List<Imagen> imagenes = new ArrayList<>();
 
-    public Articulo(String codigo, Integer precio){}
 
-    public Articulo(String codigo, Integer precio,List<Categoria> categorias) {
+    public Articulo(){}
+
+    public Articulo(String codigo, Integer precio,List<Categoria> categorias,List<Imagen> imagenes) {
         this.codigo = codigo;
         this.precio = precio;
         if(categorias != null) {
             this.categorias = categorias;
         }
         else this.categorias = new ArrayList<>();
-
+        if(imagenes != null) {
+            this.imagenes = imagenes;
+        }
+        else this.imagenes = new ArrayList<>();
     }
 
     public void añadircategoria(Categoria categoria){

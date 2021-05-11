@@ -8,12 +8,13 @@
 <div th:each="articulo: ${articulos}">
     <h4>Articulo</h4>
     <p th:text="${articulo.precio}"/>
-    <p th:text="${articulo.id}"/>
+    <p th:text="${articulo.codigo}"/>
     <ul>
         <li th:each="categoria: ${articulo.categorias}">
         <label th:text="${categoria.nombre}"/>
         </li>
     </ul>
+    <ul>
     <li th:each="imagen: ${articulo.imagenes}">
         <label th:text="${imagen.nombre}"/>
     </li>

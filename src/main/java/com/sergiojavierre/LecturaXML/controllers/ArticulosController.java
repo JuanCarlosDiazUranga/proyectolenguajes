@@ -3,6 +3,7 @@ package com.sergiojavierre.LecturaXML.controllers;
 import com.sergiojavierre.LecturaXML.dao.DAOFactory;
 import com.sergiojavierre.LecturaXML.entities.Articulo;
 import com.sergiojavierre.LecturaXML.entities.Categoria;
+import com.sergiojavierre.LecturaXML.entities.Imagen;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -100,7 +101,7 @@ public class ArticulosController {
 //Un elemento a un elemento padre
    @GetMapping("/CrearArticulo")
     public String CrearArticulo(Model model, @RequestParam String codigo, @RequestParam Integer precio){
-        Articulo articulo = new Articulo(codigo,precio,null);
+        Articulo articulo = new Articulo(codigo,precio,null,null);
       DAOFactory.getInstance().getDAOarticulos().crear(articulo);
       return "articulos";
    }
@@ -116,13 +117,27 @@ public class ArticulosController {
     }
 //El valor de un atributo realizando un filtro sobre cualquier atributo
     @GetMapping("/ActualizarCategoria")
-    public String actualizarAtributo(Model model){
+    public String ActualizarCategoria(Model model){
         List<Articulo> articulos = DAOFactory.getInstance().getDAOarticulos().getAll();
         for (int i = 0; i < articulos.size(); i++) {
             List<Categoria> categorias = articulos.get(i).getCategorias();
             for (int j = 0; j < categorias.size(); j++) {
                 if (categorias.get(j).getNombre().contains("CINE")) {
                     categorias.get(j).setNombre("CINEFILOSS");
+                }
+            }
+        }
+        DAOFactory.getInstance().getDAOarticulos().save(articulos);
+        return "articulos";
+    }
+    @GetMapping("/AñadirImagen")
+    public String AñadirImagen(Model model){
+        List<Articulo> articulos = DAOFactory.getInstance().getDAOarticulos().getAll();
+        for (int i = 0; i < articulos.size(); i++) {
+            List<Categoria> categorias = articulos.get(i).getCategorias();
+            for (int j = 0; j < categorias.size(); j++) {
+                if (categorias.get(j).getNombre().contains("CINE")) {
+                    articulos.get(i).añadirimagen(new Imagen("IMAGEN1"));
                 }
             }
         }

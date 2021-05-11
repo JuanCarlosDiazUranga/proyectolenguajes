@@ -4,6 +4,7 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.sergiojavierre.LecturaXML.entities.Articulo;
 import com.sergiojavierre.LecturaXML.entities.Categoria;
 import com.sergiojavierre.LecturaXML.entities.Data;
+import com.sergiojavierre.LecturaXML.entities.Imagen;
 
 import java.io.File;
 import java.io.IOException;
@@ -68,6 +69,18 @@ public class DAOArticulosXML implements  DAOArticulos {
             save(articulos);
         }
     }
+
+    @Override
+    public void crearimagen(String codigo, Imagen imagen) {
+        List<Articulo> articulos = getAll();
+        for (int i = 0; i < articulos.size(); i++) {
+            if (articulos.get(i).getCodigo() == codigo) {
+                articulos.get(i).añadirimagen(imagen);
+            }
+            save(articulos);
+        }
+    }
+
 
     @Override
     public List<Articulo> getAll() {

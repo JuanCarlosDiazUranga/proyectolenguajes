@@ -3,6 +3,7 @@ package com.sergiojavierre.LecturaXML.dao.Articulos;
 
 import com.sergiojavierre.LecturaXML.entities.Articulo;
 import com.sergiojavierre.LecturaXML.entities.Categoria;
+import com.sergiojavierre.LecturaXML.entities.Imagen;
 
 import java.util.List;
 
@@ -13,6 +14,6 @@ public interface DAOArticulos {
     public List<Articulo> getAll();
     public void save(List<Articulo> articulos);
     public void crearcategoria(String codigo, Categoria categoria);
-
+    public void crearimagen(String codigo, Imagen imagen);
 
 }
