@@ -79,7 +79,7 @@ public class ArticulosControllerTerminal {
             List<Categoria> categorias = articulos.get(i).getCategorias();
             for (int j = 0; j < categorias.size(); j++) {
                 if (categorias.get(j).getNombre().contains("CINE")) {
-                    categorias.get(j).setNombre("CINEFILO");
+                    categorias.get(j).setNombre("CINEFILOSS");
                 }
             }
         }
@@ -123,6 +123,11 @@ public class ArticulosControllerTerminal {
                 }
             }
         }
+    }
+    public void insertarArticulo(String codigo){
+        Articulo articulo = new Articulo(codigo);
+        DAOFactory.getInstance().getDAOarticulos().crear(articulo);
+        System.out.println("articulo guardado");
     }
 }
 

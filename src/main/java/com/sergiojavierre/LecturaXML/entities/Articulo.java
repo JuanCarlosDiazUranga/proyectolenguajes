@@ -16,12 +16,13 @@ public class Articulo {
     private Integer precio;
     @JacksonXmlElementWrapper(localName = "categorias")
     @JacksonXmlProperty(localName = "categoria")
-    private List<Categoria> categorias;
+    private List<Categoria> categorias=new ArrayList<>();
     @JacksonXmlElementWrapper(localName = "imagenes")
     @JacksonXmlProperty(localName = "imagen")
     List<Imagen> imagenes = new ArrayList<>();
 
 
+    public Articulo(String codigo){}
     public Articulo(){}
 
     public Articulo(String codigo, Integer precio,List<Categoria> categorias,List<Imagen> imagenes) {
